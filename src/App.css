@@ -1,38 +1,51 @@
-.App {
+.flip-enter {
+  transform: rotateY(90deg);
+}
+
+.flip-enter-active {
+  transform: rotateY(0);
+  transition: transform 500ms ease-out;
+}
+
+.flip-leave {
+  transform: rotateY(0);
+}
+
+.flip-leave-active {
+  transform: rotateY(90deg);
+  transition: transform 500ms ease-out;
+}
+
+.ant-card {
+  width: 50%;
+  display: flex;
+  margin: auto;
+}
+
+.ant-card-body {
+  display: flex;
+  flex-direction: column;
+  transform: translateZ(100px);
+}
+
+.ant-card-meta-title {
+  font-size: 3.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ant-card-meta-detail {
+  padding: 0 4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ant-card-meta-description {
+  font-size: 1.3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.anticon {
+  font-size: 5rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes rotateIn {
+  from {transform: rotateY(90deg);}
+  to{transform: rotateY(0);}
 }
