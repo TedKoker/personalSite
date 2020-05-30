@@ -42,6 +42,13 @@
     flex-direction: row;
 }
 
+.ant-menu-item.ant-side-menu .ant-page-header.ant-page-header-ghost.ant-page-header-compact .anticon {
+    font-size: 1.3rem;
+}
+
+.ant-menu-item.ant-side-menu .ant-page-header.ant-page-header-ghost.ant-page-header-compact {
+    margin-left: 0.5rem;
+}
 
 .ant-menu-item.ant-side-menu .ant-page-header.ant-page-header-ghost.ant-page-header-compact:hover {
     color:#1890ff;

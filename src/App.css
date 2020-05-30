@@ -20,12 +20,17 @@
   width: 50%;
   display: flex;
   margin: auto;
+  cursor: default;
 }
 
 .ant-card-body {
   display: flex;
   flex-direction: column;
   transform: translateZ(100px);
+}
+
+.ant-card-body a:hover {
+  text-decoration: underline;
 }
 
 .ant-card-meta-title {
