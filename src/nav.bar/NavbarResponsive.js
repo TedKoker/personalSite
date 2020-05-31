@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Menu, Button } from 'antd'
-import { MenuUnfoldOutlined, MenuFoldOutlined, QuestionOutlined, RiseOutlined, GithubOutlined} from '@ant-design/icons'
+import { MenuUnfoldOutlined, MenuFoldOutlined, QuestionOutlined, RiseOutlined, GithubOutlined, LinkedinOutlined} from '@ant-design/icons'
 import {Link} from 'react-router-dom'
 import './navbar.css'
 
@@ -39,7 +39,21 @@ export default function NavBarResponsive() {
                     <Link to="/projects">Projects</Link>
                 </Menu.Item>
                 <Menu.ItemGroup title="Personal Pages">
-
+                    <hr/>
+                    <Menu.Item 
+                        key="LinkedIn" 
+                        onClick={()=>{window.open("https://www.linkedin.com/in/ted-kollker-449917192/", "_blank")}}
+                        icon={<LinkedinOutlined/>}
+                    >   
+                        LinkedIn
+                    </Menu.Item>
+                    <Menu.Item 
+                        key="GitHub" 
+                        onClick={()=>{window.open("https://github.com/TedKoker", "_blank")}}
+                        icon={<GithubOutlined/>}
+                    >   
+                        GitHub
+                    </Menu.Item>
                 </Menu.ItemGroup>
             </Menu>
         </div>
