@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { Menu, PageHeader } from 'antd'
 import 'antd/dist/antd.css'
 import './navbar.css'
@@ -8,19 +8,25 @@ import {Link} from 'react-router-dom'
 export default function NavBar() {
     const [selected, setSelected] = useState(sessionStorage.getItem("selected") || "about")
 
+
     const handleSelection = useCallback((e)=> {
         sessionStorage.setItem("selected", e.key)
         setSelected(e.key)
     })
 
     return (
-        <Menu theme="light" mode="horizontal" onClick={handleSelection} selectedKeys={[selected]}>
+        <Menu 
+            theme="light" 
+            mode="horizontal" 
+            onClick={handleSelection} 
+            selectedKeys={[selected]}
+        >
             <Menu.Item disabled key="title">
-                <PageHeader
-                    className="site-page-header"
-                    title="Ted Kolker"
-                    tags={[<em key="subTitle">Frontend Developer</em>]}
-                />
+                    <PageHeader
+                        className="site-page-header"
+                        title="Ted Kolker"
+                        tags={[<em key="subTitle">Frontend Developer</em>]}
+                    />
             </Menu.Item>
             <Menu.Item key="about" icon={<QuestionOutlined/>}>
                 <Link to="/about" >About</Link>

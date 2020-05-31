@@ -1,24 +1,8 @@
-.flip-enter {
-  transform: rotateY(90deg);
-}
-
-.flip-enter-active {
-  transform: rotateY(0);
-  transition: transform 500ms ease-out;
-}
-
-.flip-leave {
-  transform: rotateY(0);
-}
-
-.flip-leave-active {
-  transform: rotateY(90deg);
-  transition: transform 500ms ease-out;
-}
 
 .ant-card {
   width: 50%;
   display: flex;
+  padding-top: 5.5rem;
   margin: auto;
   cursor: default;
 }
@@ -26,7 +10,6 @@
 .ant-card-body {
   display: flex;
   flex-direction: column;
-  transform: translateZ(100px);
 }
 
 .ant-card-body a:hover {
@@ -50,7 +33,29 @@
   font-size: 5rem;
 }
 
-@keyframes rotateIn {
-  from {transform: rotateY(90deg);}
-  to{transform: rotateY(0);}
+.ant-btn {
+  padding: 0.3rem;
+}
+
+.ant-btn .anticon {
+  font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 785px) {
+  .ant-card {
+    width: 100%;
+    padding: 0;
+  }
+
+  .ant-card-meta-detail {
+    padding: 0;
+  }
+
+  .ant-card-meta-title {
+    font-size: 2.5rem;
+  }
+
+  .anticon {
+    font-size: 3.5rem;
+  }
 }

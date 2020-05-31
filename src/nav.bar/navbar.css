@@ -1,5 +1,8 @@
 .ant-menu {
     font-size: 1rem;
+    position: fixed;
+    z-index: 9000;
+    width: 100%;
 }
 
 .ant-menu .anticon {
@@ -64,3 +67,44 @@
     transform: rotateY(0);
     transition: transform 1s;
 }
+
+@media only screen and (max-width: 785px) {
+
+    .ant-menu {
+        font-size: 1.3rem;
+        top: 0;
+        left: 0;
+        padding-top: 4rem;
+        width: 70%;
+        height: 100%;
+    }
+
+    .ant-menu-inline-collapsed {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .ant-menu-inline {
+        background: rgb(211,211,211, 0.5);
+        opacity: 1;
+    }
+
+    .ant-menu .anticon {
+        font-size: 1.3rem;
+        margin-right: 0.8rem;
+    }
+
+    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+        background: transparent;
+    }
+
+    .ant-btn:active .ant-btn-dashed{
+        color: inherit;
+        background-color: #fff;
+    }
+
+    .ant-btn-dashed:hover {
+        color: inherit;
+        background-color: inherit;
+    }
+} 

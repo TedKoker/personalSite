@@ -5,6 +5,7 @@ import '../App.css'
 export default function BasicPage(props) {
     const {Meta} = Card
     const [stt, setStt] = useState(props)
+
     useEffect(() => {
         let card = document.getElementsByClassName("ant-card")[0]
         card.animate([
@@ -18,7 +19,7 @@ export default function BasicPage(props) {
             duration:500,
             iterations: 1
         })
-        setTimeout(()=>{
+        const inFlipTimeOut = setTimeout(()=>{
             setStt(props)
             card.animate([
                 {
@@ -33,6 +34,10 @@ export default function BasicPage(props) {
             })
             
         },470)
+
+        return ()=>{
+            clearTimeout(inFlipTimeOut)
+        }
       }, [props]);
 
     return (
