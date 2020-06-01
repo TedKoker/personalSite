@@ -2,12 +2,14 @@ import React, { useState, useCallback } from 'react'
 import { Menu, Button } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined, QuestionOutlined, RiseOutlined, GithubOutlined, LinkedinOutlined} from '@ant-design/icons'
 import {Link} from 'react-router-dom'
+import {EM} from '../Shared/swipe-menu'
 import './navbar.css'
 
 export default function NavBarResponsive() {
 
     const [isCollapsed, setCollapsed] = useState(true)
     const [selected, setSelected] = useState(sessionStorage.getItem("selected") || "about")
+    const [menuWidth, setMenuWidth] = useState(undefined)
 
     const toggleCollapsed = useCallback(()=>{
         setCollapsed(!isCollapsed)
@@ -16,6 +18,22 @@ export default function NavBarResponsive() {
     const handleSelection = useCallback((e)=> {
         sessionStorage.setItem("selected", e.key)
         setSelected(e.key)
+    })
+
+    EM.on("menu-open", ()=> {
+        setMenuWidth(undefined)
+        setCollapsed(false)
+    })
+
+    EM.on("menu-close", ()=> {
+        setMenuWidth(undefined)
+        setCollapsed(true)
+    })
+
+    EM.on("menu-move", (diff) => {
+        diff>0 ? setMenuWidth(diff) : setMenuWidth(menuWidth + diff)
+        
+        setCollapsed(false)
     })
 
     return (
@@ -27,7 +45,8 @@ export default function NavBarResponsive() {
                 mode="inline"
                 inlineCollapsed={isCollapsed}
                 selectedKeys={[selected]}
-                onClick={handleSelection} 
+                onClick={handleSelection}
+                style={menuWidth ? {width: menuWidth} : null}
             >
                  <Menu.Item key="about" icon={<QuestionOutlined/>}>
                 <Link to="/about" >About</Link>

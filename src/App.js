@@ -5,8 +5,7 @@ import './App.css';
 import BasicPage from './pages/basic.page'
 import {projectsPage, aboutPage, jobExperiencePage} from './pages/pages.meta'
 import {Switch, Route, Redirect} from 'react-router-dom'
-
-
+import {startHandler, endHandler, handleTouches} from './Shared/swipe-menu'
 
 function App() {
   const [isResponsive, setResponsive] = useState(window.innerWidth<785)
@@ -17,6 +16,9 @@ function App() {
 
   useEffect(()=> {
     window.addEventListener("resize", checkResponsive)
+    window.addEventListener("touchstart", startHandler)
+    window.addEventListener("touchmove", handleTouches)
+    window.addEventListener("touchend", endHandler)
 
     return ()=>{
       window.removeEventListener("resize", checkResponsive)

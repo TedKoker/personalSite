@@ -45,6 +45,7 @@
   .ant-card {
     width: 100%;
     padding: 0;
+    transition: width 0.1s;
   }
 
   .ant-card-meta-detail {
